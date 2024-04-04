@@ -5,7 +5,7 @@
 ![logo](https://graph.org/file/754b7faa1308a13fc917f.jpg)
 
 
-# Deploy To Your Choice
+# Deploy
 
 ## Environment Variable
 
