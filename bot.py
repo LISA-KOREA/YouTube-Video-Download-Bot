@@ -1,11 +1,11 @@
 
 # ©️ LISA-KOREA | @LISA_FAN_LK | NT_BOT_CHANNEL
-
 from pyrogram import Client, filters
 from pytube import YouTube
 import asyncio
 
 # Replace 'YOUR_API_ID', 'YOUR_API_HASH', and 'YOUR_BOT_TOKEN' with your actual values
+
 API_ID = ''
 API_HASH = ''
 BOT_TOKEN = ''
@@ -53,15 +53,17 @@ async def process_youtube_link(client, message):
         sent_message = await app.send_video(message.chat.id, video=open('downloaded_video.mp4', 'rb'), caption=yt.title)
 
         # Delay for a few seconds and delete downloading and uploading
+        await asyncio.sleep(2)
         await downloading_msg.delete()
         await uploading_msg.delete()
-        await asyncio.sleep(2)
 
-        
+        # Send successful upload message
+        await message.reply_text("\n\nOWNER : @LISA_FAN_LK 💕\n\nSUCCESSFULLY UPLOADED!")
+
     except Exception as e:
         error_text = 'Error: Failed to process the YouTube link. Please make sure the link is valid and try again.'
         await message.reply_text(error_text)
-        
+
 # Start the bot
 print("🎊 I AM ALIVE 🎊")
 app.run()
