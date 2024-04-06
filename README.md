@@ -7,7 +7,16 @@
 
 # How To Deploy
 
-[YouTube](https://youtu.be/ms_ApEgb0SA?feature=shared)
+<b><details><summary>Tap To watch</summary>
+
+### Heroku Video
+<a href="https://youtu.be/ms_ApEgb0SA?feature=shared"><img alt="how to create" src="https://img.shields.io/badge/-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white"/></a> 
+
+### Render Video
+<a href="https://youtu.be/NYvMsC5Y_oI?feature=shared"><img alt="how to create" src="https://img.shields.io/badge/-YouTube-red?style=for-the-badge&logo=youtube&logoColor=white"/></a>
+
+</b>
+</details>
 
 ## Environment Variable
 
