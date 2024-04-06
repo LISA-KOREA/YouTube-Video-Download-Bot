@@ -27,6 +27,13 @@
 * `BOT_TOKEN` Get it from [@Botfather](https://t.me/botfather)
 
 
+### Bot Commands 
+```
+start - Check Bot Online 🔔
+help - How To Use The Bot 🆘
+
+```
+
 ### My Community Details
 
 
