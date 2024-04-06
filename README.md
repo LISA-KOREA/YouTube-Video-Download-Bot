@@ -5,7 +5,9 @@
 ![logo](https://graph.org/file/754b7faa1308a13fc917f.jpg)
 
 
-# Deploy
+# How To Deploy
+
+[YouTube](https://youtu.be/ms_ApEgb0SA?feature=shared)
 
 ## Environment Variable
 
