@@ -1,3 +1,4 @@
+
 # ©️ LISA-KOREA | @LISA_FAN_LK | NT_BOT_CHANNEL
 
 from pyrogram import Client, filters
@@ -56,10 +57,9 @@ async def process_youtube_link(client, message):
         await uploading_msg.delete()
         await asyncio.sleep(2)
 
-         # Delete downloading and uploading text messages
-        await app.delete_messages(message.chat.id, [downloading_msg.message_id, uploading_msg.message_id])
+        
     except Exception as e:
-        error_text = 'OWNER : @LISA_FAN_LK 💕\nFor the List of Telegram Bots'
+        error_text = 'Error: Failed to process the YouTube link. Please make sure the link is valid and try again.'
         await message.reply_text(error_text)
         
 # Start the bot
