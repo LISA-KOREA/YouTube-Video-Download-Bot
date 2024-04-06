@@ -1,1 +1,1 @@
-gunicorn python3 bot.py
+gunicorn bot.py
