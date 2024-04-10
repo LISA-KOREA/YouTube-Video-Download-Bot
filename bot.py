@@ -6,9 +6,9 @@ import asyncio
 
 # Replace 'YOUR_API_ID', 'YOUR_API_HASH', and 'YOUR_BOT_TOKEN' with your actual values
 
-API_ID = '4888076'
-API_HASH = '8b9b8214d84305d5ba8042c93575ea84'
-BOT_TOKEN = '5633436666:AAEA0g8qq3hCpffVwe_cBk5X2VJlb6iTvSU'
+API_ID = ''
+API_HASH = ''
+BOT_TOKEN = ''
 
 # Create a Pyrogram client
 app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
