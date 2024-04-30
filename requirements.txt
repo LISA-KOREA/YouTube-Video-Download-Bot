@@ -1,5 +1,5 @@
 tgcrypto
 pyrogram
-ytdlp
+youtube_dl
 flask
 gunicorn==20.1.0
