@@ -1,5 +1,5 @@
 tgcrypto
 pyrogram
-pytube
+ytdlp
 flask
 gunicorn==20.1.0
