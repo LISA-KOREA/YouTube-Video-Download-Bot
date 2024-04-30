@@ -1,8 +1,8 @@
 # ©️ LISA-KOREA | @LISA_FAN_LK | NT_BOT_CHANNEL
 from pyrogram import Client, filters
-from ytdlp import YoutubeDL
 import asyncio
 import os
+import youtube_dl
 
 # Replace 'YOUR_API_ID', 'YOUR_API_HASH', and 'YOUR_BOT_TOKEN' with your actual values
 
@@ -41,9 +41,9 @@ async def process_youtube_link(client, message):
         # Downloading text message
         downloading_msg = await message.reply_text("Downloading video...")
 
-        # Download the YouTube video using Ytdlp
-        ytdl_opts = {'outtmpl': 'downloaded_video.mp4'}
-        with YoutubeDL(ytdl_opts) as ydl:
+        # Download the YouTube video using youtube_dl
+        ydl_opts = {'outtmpl': 'downloaded_video.mp4'}
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             ydl.download([youtube_link])
 
         # Uploading text message
