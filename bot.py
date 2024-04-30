@@ -1,8 +1,8 @@
-
 # ©️ LISA-KOREA | @LISA_FAN_LK | NT_BOT_CHANNEL
 from pyrogram import Client, filters
-from pytube import YouTube
+from ytdlp import YoutubeDL
 import asyncio
+import os
 
 # Replace 'YOUR_API_ID', 'YOUR_API_HASH', and 'YOUR_BOT_TOKEN' with your actual values
 
@@ -41,21 +41,19 @@ async def process_youtube_link(client, message):
         # Downloading text message
         downloading_msg = await message.reply_text("Downloading video...")
 
-        # Download the YouTube video
-        yt = YouTube(youtube_link)
-        video = yt.streams.filter(progressive=True, file_extension='mp4').first()
-        video.download(filename='downloaded_video.mp4')
+        # Download the YouTube video using Ytdlp
+        ytdl_opts = {'outtmpl': 'downloaded_video.mp4'}
+        with YoutubeDL(ytdl_opts) as ydl:
+            ydl.download([youtube_link])
 
         # Uploading text message
         uploading_msg = await message.reply_text("Uploading video...")
 
         # Send the video file to the user
-        sent_message = await app.send_video(message.chat.id, video=open('downloaded_video.mp4', 'rb'), caption=yt.title)
+        await app.send_video(message.chat.id, video=open('downloaded_video.mp4', 'rb'), caption=ydl.extract_info(youtube_link, download=False).get('title'))
 
-        # Delay for a few seconds and delete downloading and uploading
-        await asyncio.sleep(2)
-        await downloading_msg.delete()
-        await uploading_msg.delete()
+        # Clean up downloaded video file
+        os.remove('downloaded_video.mp4')
 
         # Send successful upload message
         await message.reply_text("\n\nOWNER : @LISA_FAN_LK 💕\n\nSUCCESSFULLY UPLOADED!")
