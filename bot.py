@@ -25,7 +25,7 @@ ABOUT_TXT = """
 ╭───────────⍟
 ├📛 **My Name** : [YouTube Video Uploader Bot](https://t.me/YouTubeUploaderOneBot)
 ├📢 **Framework** : [Pyrogram 2.0.106](https://docs.pyrogram.org/)
-├💮 **Language** : [Python 3.12.2](https://www.python.org)
+├💮 **Language** : [Python 3.12.3](https://www.python.org)
 ├👥 **Support Group** : [NT BOTS SUPPORT](https://t.me/NT_BOTS_SUPPORT)
 ├🥏 **Channel** : [NT BOT CHANNEL](https://t.me/NT_BOT_CHANNEL)
 ├⛲ **Source** : [Click](https://github.com/LISA-KOREA/YouTube-Video-Download-Bot)
