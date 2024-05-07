@@ -20,12 +20,12 @@ app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
 ########################🎊 Lisa | NT BOTS 🎊#####################################################
-START_TXT = 'Hello, {}!\n\n**Send me the YouTube link of the video you want to upload**'
+START_TXT = 'Hello, {}!\n\nSend me the YouTube link of the video you want to upload'
 ABOUT_TXT = """
 ╭───────────⍟
 ├📛 **My Name** : [YouTube Video Uploader Bot](https://t.me/YouTubeUploaderOneBot)
 ├📢 **Framework** : [Pyrogram 2.0.106](https://docs.pyrogram.org/)
-├💮 **Language** : [Python 3.12.3](https://www.python.org)
+├💮 **Language** : [Python 3.12.2](https://www.python.org)
 ├👥 **Support Group** : [NT BOTS SUPPORT](https://t.me/NT_BOTS_SUPPORT)
 ├🥏 **Channel** : [NT BOT CHANNEL](https://t.me/NT_BOT_CHANNEL)
 ├⛲ **Source** : [Click](https://github.com/LISA-KOREA/YouTube-Video-Download-Bot)
@@ -57,7 +57,7 @@ async def start(client, message):
     await message.reply_text(START_TXT.format(message.from_user.first_name), reply_markup=InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton('📍 Update Channel', url='https://t.me/NT_BOT_CHANNEL'),
+                InlineKeyboardButton('📍 Upload Channel', url='https://t.me/NT_BOT_CHANNEL'),
             ],
             [
                 InlineKeyboardButton('👩‍💻 Developer', url='https://t.me/LISA_FAN_LK'),
