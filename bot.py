@@ -1,17 +1,25 @@
-# ©️ LISA-KOREA | @LISA_FAN_LK | NT_BOT_CHANNEL
+# ©️ LISA-KOREA | @LISA_FAN_LK | NT_BOT_CHANNEL | LISA-KOREA/YouTube-Video-Download-Bot
+
+# [⚠️ Do not change this repo link ⚠️] :- https://github.com/LISA-KOREA/YouTube-Video-Download-Bot
+
 
 import logging
 import asyncio
 import yt_dlp
-from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
+from pyrogram import Client, filters, enums
+from pyrogram.errors import FloodWait, UserNotParticipant
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 ########################🎊 Lisa | NT BOTS 🎊######################################################
 # Replace 'YOUR_API_ID', 'YOUR_API_HASH', and 'YOUR_BOT_TOKEN' with your actual values
 API_ID = ''
 API_HASH = ''
 BOT_TOKEN = ''
-# Skip Or add your proxy link
+#########################
+# Add Your Channel Id 
+CHANNEL = ''
+# Skip Or Add Your Proxy Link
 HTTP_PROXY = ''
+#########################
 youtube_dl_username = None  
 youtube_dl_password = None  
 ########################🎊 Lisa | NT BOTS 🎊######################################################
@@ -43,6 +51,10 @@ async def cancel(client, callback_query):
 # About command handler
 @app.on_message(filters.private & filters.command("about"))
 async def about(client, message):
+    if CHANNEL:
+      fsub = await handle_force_subscribe(client, message)
+      if fsub == 400:
+        return
     await message.reply_text(ABOUT_TXT, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
         [
             [InlineKeyboardButton('⛔️ Close', callback_data='cancel')]
@@ -53,6 +65,10 @@ async def about(client, message):
 # Start command handler
 @app.on_message(filters.private & filters.command("start"))
 async def start(client, message):
+    if CHANNEL:
+      fsub = await handle_force_subscribe(client, message)
+      if fsub == 400:
+        return
     #user = message.from_user
     await message.reply_text(START_TXT.format(message.from_user.first_name), reply_markup=InlineKeyboardMarkup(
         [
@@ -86,9 +102,12 @@ Enjoy using the bot!
 # Message handler for processing YouTube links
 @app.on_message(filters.regex(r'^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+'))
 async def process_youtube_link(client, message):
+    if CHANNEL:
+      fsub = await handle_force_subscribe(client, message)
+      if fsub == 400:
+        return
     youtube_link = message.text
     try:
-        # Downloading text message
         downloading_msg = await message.reply_text("Downloading video...")
 
         ydl_opts = {
@@ -109,30 +128,62 @@ async def process_youtube_link(client, message):
 
             if title:
                 ydl.download([youtube_link])
-
-                # Uploading text message
                 uploading_msg = await message.reply_text("Uploading video...")
-
-                # Send the video file to the user
                 video_filename = f"downloaded_video_{info_dict['id']}.mp4"
                 sent_message = await app.send_video(message.chat.id, video=open(video_filename, 'rb'), caption=title)
 
-
-                # Delay for a few seconds and delete downloading and uploading
                 await asyncio.sleep(2)
                 await downloading_msg.delete()
                 await uploading_msg.delete()
 
-                # Send successful upload message
                 await message.reply_text("\n\nOWNER : @LISA_FAN_LK 💕\n\nSUCCESSFULLY UPLOADED!")
             else:
                 logging.error("No video streams found.")
                 await message.reply_text("Error: No downloadable video found.")
-
     except Exception as e:
         logging.exception("Error processing YouTube link: %s", e)
         await message.reply_text("Error: Failed to process the YouTube link. Please try again later.")
 
+#########################################################################################################
+async def handle_force_subscribe(bot, message):
+    try:
+        invite_link = await bot.create_chat_invite_link(int(CHANNEL))
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return 400
+    try:
+        user = await bot.get_chat_member(int(CHANNEL), message.from_user.id)
+        if user.status == "kicked":
+            await bot.send_message(
+                chat_id=message.from_user.id,
+                text="Sorry Sir, You are Banned. Contact My [Support Group](https://t.me/NT_BOTS_SUPPORT).",
+                disable_web_page_preview=True,
+            )
+            return 400
+    except UserNotParticipant:
+        await bot.send_message(
+            chat_id=message.from_user.id,
+            text="Pʟᴇᴀsᴇ Jᴏɪɴ Mʏ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ Tᴏ Usᴇ Mᴇ!\n\nDᴜᴇ ᴛᴏ Oᴠᴇʀʟᴏᴀᴅ, Oɴʟʏ Cʜᴀɴɴᴇʟ Sᴜʙsᴄʀɪʙᴇʀs Cᴀɴ Usᴇ Mᴇ!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("🤖 Pʟᴇᴀsᴇ Jᴏɪɴ Mʏ Cʜᴀɴɴᴇʟ 🤖", url=invite_link.invite_link)
+                    ],
+                ]
+            ),
+            
+        )
+        return 400
+    except Exception:
+        await bot.send_message(
+            chat_id=message.from_user.id,
+            text="Something Went Wrong. Contact My [Support Group](https://t.me/NT_BOTS_SUPPORT).",
+            disable_web_page_preview=True,
+        )
+        return 400
+
+
+########################################################################
 # Start the bot
 print("🎊 I AM ALIVE 🎊")
 app.run()
