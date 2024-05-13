@@ -29,13 +29,13 @@
 
 ### Features
 
-• Download any youtube videos no age restriction 
+- Download any youtube videos no age restriction 
 
-• Generate any youtube video thumbnail
+- Generate any youtube video thumbnail
 
-• force-sub 
+- force-sub 
 
-New features adding soon...
+**New features adding soon...**
 ### Bot Commands 
 ```
 start - Check Bot Online 🔔
