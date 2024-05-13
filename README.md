@@ -27,6 +27,13 @@
 * `BOT_TOKEN` Get it from [@Botfather](https://t.me/botfather)
 
 
+### Features
+
+• Download any youtube videos no age restriction 
+• Generate any youtube video thumbnail
+• force-sub 
+
+New features adding soon...
 ### Bot Commands 
 ```
 start - Check Bot Online 🔔
