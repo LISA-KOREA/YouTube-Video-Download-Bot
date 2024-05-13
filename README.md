@@ -30,7 +30,9 @@
 ### Features
 
 • Download any youtube videos no age restriction 
+
 • Generate any youtube video thumbnail
+
 • force-sub 
 
 New features adding soon...
