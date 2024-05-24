@@ -42,7 +42,7 @@ start - Check Bot Online 🔔
 help - How To Use The Bot 🆘
 about - Something About Me 😌
 thumbnail - generate video thumbnail 🌁
-
+date - check date and time 🕰️
 ```
 
 ### BUY ME A COFFEE 🥹
