@@ -3,10 +3,25 @@
 # [⚠️ Do not change this repo link ⚠️] :- https://github.com/LISA-KOREA/YouTube-Video-Download-Bot
 
 from pyrogram import Client, filters
+import datetime
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
 from Youtube.config import Config
 from Youtube.script import Translation
 from Youtube.forcesub import handle_force_subscribe
+
+
+#########################
+
+# Calculate current time greeting
+currentTime = datetime.datetime.now()
+if currentTime.hour < 12:
+    wish = "Good morning."
+elif 12 <= currentTime.hour < 18:
+    wish = "Good afternoon."
+else:
+    wish = "Good evening."
+
+
 
 
 ########################🎊 Lisa | NT BOTS 🎊######################################################
@@ -40,7 +55,7 @@ async def start(client, message):
         return
     #user = message.from_user
     await message.reply_text(
-        text=Translation.START_TEXT.format(message.from_user.first_name),
+        text=Translation.START_TEXT.format(message.from_user.first_name, wish),
         reply_markup=InlineKeyboardMarkup(
         [
             [
