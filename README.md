@@ -26,6 +26,7 @@
 
 * `BOT_TOKEN` Get it from [@Botfather](https://t.me/botfather)
 
+* `CHANNEL` Add your forcesub channel id
 
 ### Features
 
