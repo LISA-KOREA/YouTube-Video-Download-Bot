@@ -34,6 +34,8 @@
 
 - Generate any youtube video thumbnail
 
+- Date and time added use `/date`
+
 - force-sub 
 
 **New features adding soon...**
