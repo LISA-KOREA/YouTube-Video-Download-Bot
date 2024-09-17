@@ -11,7 +11,7 @@ from Youtube.forcesub import handle_force_subscribe
 
 youtube_dl_username = None  
 youtube_dl_password = None 
-cookies_file_path = 'path/to/cookies.json'  # Replace with the actual path to your cookies file
+
 
 @Client.on_message(filters.regex(r'^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+'))
 async def process_youtube_link(client, message):
