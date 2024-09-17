@@ -9,23 +9,24 @@ from pyrogram import Client, filters
 from Youtube.config import Config
 from Youtube.forcesub import handle_force_subscribe
 
-
 youtube_dl_username = None  
 youtube_dl_password = None 
+cookies_file_path = 'path/to/cookies.json'  # Replace with the actual path to your cookies file
 
 @Client.on_message(filters.regex(r'^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+'))
 async def process_youtube_link(client, message):
     if Config.CHANNEL:
-      fsub = await handle_force_subscribe(client, message)
-      if fsub == 400:
-        return
+        fsub = await handle_force_subscribe(client, message)
+        if fsub == 400:
+            return
     youtube_link = message.text
     try:
         downloading_msg = await message.reply_text("Downloading video...")
 
         ydl_opts = {
             'outtmpl': 'downloaded_video_%(id)s.%(ext)s',
-            'progress_hooks': [lambda d: print(d['status'])]
+            'progress_hooks': [lambda d: print(d['status'])],
+            'cookiefile': 'cookies.txt'
         }
 
         if Config.HTTP_PROXY != "":
@@ -56,4 +57,5 @@ async def process_youtube_link(client, message):
     except Exception as e:
         logging.exception("Error processing YouTube link: %s", e)
         await message.reply_text("Error: Failed to process the YouTube link. Please try again later.")
-      
+
+
