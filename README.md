@@ -28,6 +28,8 @@
 
 * `CHANNEL` Add your forcesub channel id
 
+* `Cookies.txt` Add your youtube cookies
+
 ### Features
 
 - Download any youtube videos no age restriction 
