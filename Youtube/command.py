@@ -75,16 +75,17 @@ async def start(client, message):
 
 # Help command handler
 @Client.on_message(filters.command("help"))
-def help(client, message):
+async def help(client, message):
     help_text = """
-    Welcome to the YouTube Video Uploader Bot!
+Welcome to the YouTube Video Uploader Bot!
 
 To upload a YouTube video, simply send me the YouTube link.
-    
+
 Enjoy using the bot!
 
-   ©️ Channel : @NT_BOT_CHANNEL
+©️ Channel : @NT_BOT_CHANNEL
     """
-    message.reply_text(help_text)
+    await message.reply_text(help_text)
+
 
 ########################🎊 Lisa | NT BOTS 🎊######################################################
