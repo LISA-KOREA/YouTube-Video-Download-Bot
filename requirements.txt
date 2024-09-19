@@ -1,5 +1,5 @@
 tgcrypto
-pyrogram
+pyrofork
 yt_dlp
 flask
 pytz
