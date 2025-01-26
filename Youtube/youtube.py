@@ -31,7 +31,7 @@ async def process_youtube_link(client, message):
         [InlineKeyboardButton("Low Quality", callback_data=f"download|low|{youtube_link}")]
     ])
     
-    await message.reply_text("Choose the video quality:", reply_markup=keyboard)
+    await message.reply_text("**Getting Available Formats**", reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex(r'^download\|'))
 async def handle_download_button(client, callback_query):
@@ -77,7 +77,7 @@ async def handle_download_button(client, callback_query):
                 await downloading_msg.delete()
                 await uploading_msg.delete()
 
-                await callback_query.message.reply_text("\n\nOWNER : @LISA_FAN_LK 💕\n\nSUCCESSFULLY UPLOADED!")
+                await callback_query.message.reply_text("\n\SUCCESSFULLY UPLOADED! ✅")
             else:
                 logging.error("No video streams found.")
                 await callback_query.message.reply_text("Error: No downloadable video found.")
