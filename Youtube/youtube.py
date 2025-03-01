@@ -81,6 +81,9 @@ async def handle_download_button(client, callback_query):
             else:
                 logging.error("No video streams found.")
                 await callback_query.message.reply_text("Error: No downloadable video found.")
+    except yt_dlp.utils.DownloadError as e:
+        logging.exception("Error downloading YouTube video: %s", e)
+        await callback_query.message.reply_text("Error: The video is unavailable. It may have been removed or is restricted.")
     except Exception as e:
         logging.exception("Error processing YouTube link: %s", e)
         await callback_query.message.reply_text("Error: Failed to process the YouTube link. Please try again later.")
