@@ -36,7 +36,7 @@ async def process_youtube_link(client, message):
 @Client.on_callback_query(filters.regex(r'^download\|'))
 async def handle_download_button(client, callback_query):
     quality, youtube_link = callback_query.data.split('|')[1:]
-    
+
     quality_format = {
         'best': 'best',
         '1080p': 'bestvideo[height<=1080]+bestaudio/best[height<=1080]',
@@ -47,43 +47,49 @@ async def handle_download_button(client, callback_query):
     }.get(quality, 'best')
 
     try:
-        downloading_msg = await callback_query.message.reply_text("Downloading video...")
+        await callback_query.message.edit_text("**Downloading video...**")
 
         ydl_opts = {
             'format': quality_format,
             'outtmpl': 'downloaded_video_%(id)s.%(ext)s',
-            'progress_hooks': [lambda d: print(d['status'])],
+            'merge_output_format': 'mp4',
+            'progress_hooks': [lambda d: print(f"[yt_dlp] {d.get('status')}")],
             'cookiefile': 'cookies.txt'
         }
 
-        if Config.HTTP_PROXY != "":
+        if Config.HTTP_PROXY:
             ydl_opts['proxy'] = Config.HTTP_PROXY
-        if youtube_dl_username is not None:
+        if youtube_dl_username:
             ydl_opts['username'] = youtube_dl_username
-        if youtube_dl_password is not None:
+        if youtube_dl_password:
             ydl_opts['password'] = youtube_dl_password
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(youtube_link, download=False)
-            title = info_dict.get('title', None)
+            video_id = info_dict.get('id')
+            title = info_dict.get('title')
 
-            if title:
+            if title and video_id:
                 ydl.download([youtube_link])
-                uploading_msg = await callback_query.message.reply_text("Uploading video...")
-                video_filename = f"downloaded_video_{info_dict['id']}.mp4"
-                sent_message = await client.send_video(callback_query.message.chat.id, video=open(video_filename, 'rb'), caption=title)
+                await callback_query.message.edit_text("**Uploading video...**")
 
-                await asyncio.sleep(2)
-                await downloading_msg.delete()
-                await uploading_msg.delete()
+                video_filename = f"downloaded_video_{video_id}.mp4"
+                if os.path.exists(video_filename):
+                    await client.send_video(
+                        callback_query.message.chat.id,
+                        video=open(video_filename, 'rb'),
+                        caption=title
+                    )
+                    os.remove(video_filename)
 
-                await callback_query.message.reply_text("\n\SUCCESSFULLY UPLOADED! ✅")
+                await callback_query.message.edit_text("✅ **Successfully Uploaded!**")
             else:
                 logging.error("No video streams found.")
-                await callback_query.message.reply_text("Error: No downloadable video found.")
+                await callback_query.message.edit_text("❌ Error: No downloadable video found.")
+
     except yt_dlp.utils.DownloadError as e:
         logging.exception("Error downloading YouTube video: %s", e)
-        await callback_query.message.reply_text("Error: The video is unavailable. It may have been removed or is restricted.")
+        await callback_query.message.edit_text("❌ Error: The video is unavailable. It may have been removed or is restricted.")
     except Exception as e:
         logging.exception("Error processing YouTube link: %s", e)
-        await callback_query.message.reply_text("Error: Failed to process the YouTube link. Please try again later.")
+        await callback_query.message.edit_text("❌ Error: Failed to process the YouTube link. Please try again later.")
