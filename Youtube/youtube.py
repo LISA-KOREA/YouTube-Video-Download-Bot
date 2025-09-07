@@ -68,7 +68,7 @@ async def handle_download_button(client, callback_query):
             info_dict = ydl.extract_info(youtube_link, download=False)
             video_id = info_dict.get('id')
             title = info_dict.get('title')
-            duration = info.get("duration", 0)
+            duration = info_dict.get("duration", 0)
 
             if title and video_id:
                 ydl.download([youtube_link])
