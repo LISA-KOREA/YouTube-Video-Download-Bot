@@ -5,6 +5,16 @@
 ![logo](https://graph.org/file/754b7faa1308a13fc917f.jpg)
 
 
+
+# ⚠️ SECURITY WARNING
+
+This is a **public project** — if you fork it and push your bot’s credentials,  
+**everyone can see your secrets** (including your `BOT_TOKEN`, `API_HASH`, or `cookies.txt`).
+
+> Use **Heroku Config Vars**, `.env`, or private forks to keep your credentials safe.  
+
+
+
 # Donation
 <b><details><summary>Click To Open Donation detelis</summary>
 
