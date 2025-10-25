@@ -112,5 +112,5 @@ date - check date and time 🕰️
 
 ### Credits ✌🏻
 
-* [Lisa](https://github.com/LISA-KOREA)
-* [Jobin Justin](https://github.com/TG-SORRY)
+* [Lisa 😌](https://github.com/LISA-KOREA)
+* [TG-SORRY 🥶](https://github.com/TG-SORRY)
