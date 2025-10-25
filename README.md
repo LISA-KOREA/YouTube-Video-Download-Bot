@@ -106,8 +106,6 @@ date - check date and time 🕰️
 - YouTube Channel : [Telegram Bots 🤖](https://youtube.com/@NTBOT?feature=shared)
 - Telegram Channel : [NT Bots ❤️‍🩹](https://t.me/NT_BOT_CHANNEL)
 - Telegram Group : [NT Bots Support 🎗️](https://t.me/NT_BOTS_SUPPORT)
-- URL Uploader Bot : [Uploader Bot 🚀](https://t.me/UploadLinkToFileBot)
-- Me : [Lisa 👑](https://t.me/LISA_FAN_LK)
 
 
 ### Credits ✌🏻
