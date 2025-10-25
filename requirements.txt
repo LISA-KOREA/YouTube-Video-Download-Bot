@@ -2,5 +2,10 @@ tgcrypto
 pyrofork
 yt_dlp
 flask
+aiofiles
 pytz
+aiohttp
+Pillow
+hachoir
+ffmpeg-python
 gunicorn==20.1.0
