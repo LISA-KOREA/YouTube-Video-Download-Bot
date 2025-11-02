@@ -85,9 +85,21 @@ If you have any questions or would like to sponsor this project in another way, 
 
 - Date and time added use `/date`
 
-- force-sub 
+- force-sub
 
-**New features adding soon...**
+- Audio (MP3) download
+
+- Fix thumbnail
+
+
+**Up coming features...**
+
+- User choice between **Send as Video** or **Send as Document**
+- Inline progress bar
+- Custom thumbnail
+- Custom caption 
+- File rename before upload
+
 ### Bot Commands 
 ```
 start - Check Bot Online 🔔
