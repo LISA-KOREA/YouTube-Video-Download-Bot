@@ -27,9 +27,9 @@ if __name__ == "__main__":
 # Create a Pyrogram client
 app = Client(
     "my_bot",
-    api_id=Config.API_ID, 
-    api_hash=Config.API_HASH, 
-    bot_token=Config.BOT_TOKEN,
+    api_id=Config.30713743, 
+    api_hash=Config.d4c039ee62868d0de195116bf626fb4d, 
+    bot_token=Config.8297701963:AAHu0lR_p4A3YkdswlRlR2nR6GPzcadJAFY,
     plugins=dict(root="Youtube")
 )
 
