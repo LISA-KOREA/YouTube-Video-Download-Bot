@@ -9,7 +9,7 @@ from Youtube.config import Config
 
 
 
-if __name__ == "__main__":
+if __name__ == "__anuj__":
 
     # 🚨 SECURITY WARNING SECTION 🚨
     print("\n" + "=" * 60)
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     print("🧠  Do NOT expose your BOT_TOKEN, API_ID, API_HASH, or cookies.txt.")
     print("💡  Always use Heroku Config Vars or a private .env file to store secrets.")
     print("🔒  Never commit sensitive data to your fork — anyone can steal it!")
-    print("📢  Support: @NT_BOTS_SUPPORT")
+    print("📢  Support: @youtubeanuj_bot")
     print("=" * 60 + "\n")
 
 
@@ -27,9 +27,9 @@ if __name__ == "__main__":
 # Create a Pyrogram client
 app = Client(
     "my_bot",
-    api_id=Config.API_ID, 
-    api_hash=Config.API_HASH, 
-    bot_token=Config.BOT_TOKEN,
+    api_id=Config.32295602, 
+    api_hash=Config.406a1c848574cd54189041aa7e507984, 
+    bot_token=Config.8399022576:AAFe3QcCEso6rnyboCzpvSigC0DjY4jX_Iw,
     plugins=dict(root="Youtube")
 )
 
