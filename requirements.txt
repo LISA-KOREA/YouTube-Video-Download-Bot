@@ -1,5 +1,5 @@
 tgcrypto
-pyrofork
+pyroblock
 yt_dlp
 flask
 aiofiles
