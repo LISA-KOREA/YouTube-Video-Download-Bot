@@ -107,7 +107,7 @@ async def handle_download(client, cq):
             }
         else:
             ydl_opts = {
-                "format": fmt_id,
+                "format": f"{fmt_id}+bestaudio/best",
                 "outtmpl": output,
                 "quiet": True,
                 "cookiefile": "cookies.txt",
