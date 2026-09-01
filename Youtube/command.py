@@ -6,7 +6,7 @@
 
 from pyrogram import Client, filters
 import datetime
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ForceReply, LinkPreviewOptions
 from Youtube.config import Config
 from Youtube.script import Translation
 from Youtube.forcesub import handle_force_subscribe
@@ -40,7 +40,7 @@ async def about(client, message):
         return
     await message.reply_text(
         text=Translation.ABOUT_TXT,
-        disable_web_page_preview=True,
+        link_preview_options=LinkPreviewOptions(is_disabled=True),
         reply_markup=InlineKeyboardMarkup(
         [
             [InlineKeyboardButton('⛔️ Close', callback_data='cancel')]
