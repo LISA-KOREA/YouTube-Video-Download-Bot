@@ -98,6 +98,7 @@ async def handle_download(client, cq):
                 "format": "bestaudio/best",
                 "outtmpl": output,
                 "quiet": True,
+                "js_runtimes": "deno",
                 "cookiefile": "cookies.txt",
                 "postprocessors": [{
                     "key": "FFmpegExtractAudio",
@@ -110,6 +111,7 @@ async def handle_download(client, cq):
                 "format": f"{fmt_id}+bestaudio/best",
                 "outtmpl": output,
                 "quiet": True,
+                "js_runtimes": "deno",
                 "cookiefile": "cookies.txt",
                 "merge_output_format": "mp4",
             }
