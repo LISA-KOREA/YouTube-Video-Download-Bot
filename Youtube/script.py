@@ -5,8 +5,8 @@ class Translation(object):
     ABOUT_TXT = """
 ╭───────────────⍟
 ├📛 **Bot Name:** [YouTube Video Uploader Bot](https://t.me/YouTubeUploaderOneBot)
-├⚙️ **Framework:** [PyroFork v2.3.68](https://docs.pyrogram.org/)
-├💻 **Language:** [Python 3.13.7](https://www.python.org)
+├⚙️ **Framework:** [PyroBlock v2.3.79](https://docs.pyrogram.org/)
+├💻 **Language:** [Python 3.14.7](https://www.python.org)
 ├👥 **Support Group:** [NT BOTS SUPPORT](https://t.me/NT_BOTS_SUPPORT)
 ├📢 **Channel:** [NT BOT CHANNEL](https://t.me/NT_BOT_CHANNEL)
 ├💎 **Source Code:** [GitHub Repository](https://github.com/LISA-KOREA/YouTube-Video-Download-Bot)
