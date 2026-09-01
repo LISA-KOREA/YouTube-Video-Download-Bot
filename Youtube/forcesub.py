@@ -2,7 +2,7 @@ import asyncio
 from pyrogram import Client, enums
 from Youtube.config import Config
 from pyrogram.errors import FloodWait, UserNotParticipant
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, LinkPreviewOptions
 
 
 ########################🎊 Lisa | NT BOTS 🎊######################################################
@@ -19,7 +19,7 @@ async def handle_force_subscribe(bot, message):
             await bot.send_message(
                 chat_id=message.from_user.id,
                 text="Sorry Sir, You are Banned. Contact My [Support Group](https://t.me/NT_BOTS_SUPPORT).",
-                disable_web_page_preview=True,
+                link_preview_options=LinkPreviewOptions(is_disabled=True),
             )
             return 400
     except UserNotParticipant:
@@ -40,7 +40,7 @@ async def handle_force_subscribe(bot, message):
         await bot.send_message(
             chat_id=message.from_user.id,
             text="Something Went Wrong. Contact My [Support Group](https://t.me/NT_BOTS_SUPPORT).",
-            disable_web_page_preview=True,
+            link_preview_options=LinkPreviewOptions(is_disabled=True),
         )
         return 400
 
