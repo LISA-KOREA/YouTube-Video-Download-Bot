@@ -6,21 +6,6 @@
 
 
 
-# Important
-
-⚠️ This repository has been archived and is no longer actively maintained.
-
-## Status
-- No new features will be added
-- Issues and pull requests may not be reviewed
-- The project is kept public for reference and educational purposes
-
-
-## Thanks
-Thanks to everyone who used, contributed to, or supported this project.
-
-
-
 
 
 # ⚠️ SECURITY WARNING
